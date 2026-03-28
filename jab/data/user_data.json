@@ -1,5 +1,5 @@
 {
-    "Salutation":"",
+    "Salutation": "",
     "Full name": "",
     "First name": "",
     "Last name": "",
@@ -10,10 +10,14 @@
     "Mobile": "",
     "Email": "",
     "Notice period": "",
-    "Skills": {
-
-    },
+    "Skills": {},
     "Date of birth": "",
     "Gender": "",
-    "Preferred work location": ""
+    "Preferred work location": "",
+    "Highest qualification": "",
+    "Passport": "Yes",
+    "Shift willingness": "Yes",
+    "Vehicle": "Yes",
+    "Resume path": "",
+    "Cover letter": ""
 }
