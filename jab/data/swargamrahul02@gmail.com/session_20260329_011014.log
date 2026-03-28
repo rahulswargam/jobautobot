@@ -1,0 +1,110 @@
+[2026-03-29 01:10:14] INFO - NaukriBot ready — user: swargamrahul02@gmail.com, target: 20 jobs
+[2026-03-29 01:10:40] INFO - Browser launched
+[2026-03-29 01:10:40] INFO - Login attempt 1/3
+[2026-03-29 01:10:48] INFO - Logged in successfully
+[2026-03-29 01:10:53] INFO - Checkboxes found: 0
+[2026-03-29 01:10:56] INFO - Checkboxes found: 72
+[2026-03-29 01:11:03] INFO -   Q: How many years of experience do you have in Docker?
+[2026-03-29 01:11:03] INFO -   A: 4
+[2026-03-29 01:11:06] INFO -   Q: Please select the city you are currently residing or willing to relocate to
+[2026-03-29 01:11:06] INFO -   A: Yes
+[2026-03-29 01:11:06] INFO -   Radio/checkbox → Bengaluru
+[2026-03-29 01:11:09] INFO -   Q: Are you currently residing in Chennai, Tamil Nadu or willing to relocate to Chennai, Tamil Nadu?
+[2026-03-29 01:11:09] INFO -   A: Yes
+[2026-03-29 01:11:09] INFO -   Radio/checkbox → Yes
+[2026-03-29 01:11:12] INFO -   Q: What is your last working day?
+[2026-03-29 01:11:12] INFO -   A: Swargam
+[2026-03-29 01:11:15] INFO -   Q: Total how many years of experience you have
+[2026-03-29 01:11:15] INFO -   A: 5
+[2026-03-29 01:11:18] INFO -   Q: How many companies have you worked so far with?
+[2026-03-29 01:11:18] INFO -   A: No
+[2026-03-29 01:11:21] INFO -   Q: What is your relevant experienc ein DevOps?
+[2026-03-29 01:11:21] INFO -   A: 4
+[2026-03-29 01:11:21] INFO -   Radio/checkbox → 5-6 Years
+[2026-03-29 01:11:24] INFO -   Q: Are you comfortable with Pune/Hyderabad Location?
+[2026-03-29 01:11:24] INFO -   A: Hyderabad
+[2026-03-29 01:11:24] INFO -   Radio/checkbox → No
+[2026-03-29 01:11:27] INFO -   Q: Thank you for your responses.
+[2026-03-29 01:11:27] INFO -   A: A
+[2026-03-29 01:11:27] ERROR - classify_new_question: ElementHandle.query_selector_all: Protocol error (DOM.describeNode): Cannot find context with specified id
+[2026-03-29 01:11:31] INFO - Checkboxes found: 67
+[2026-03-29 01:11:38] INFO -   Q: How many years of experience do you have in Azure cloud platform?
+[2026-03-29 01:11:38] INFO -   A: 4
+[2026-03-29 01:11:40] INFO -   Q: How many years of experience do you have in Iac Tools?
+[2026-03-29 01:11:40] INFO -   A: 5
+[2026-03-29 01:11:43] INFO -   Q: How many years of experience do you have in Powershell?
+[2026-03-29 01:11:43] INFO -   A: 5
+[2026-03-29 01:11:46] INFO -   Q: How many years of experience do you have in Python?
+[2026-03-29 01:11:46] INFO -   A: 4
+[2026-03-29 01:11:48] INFO -   Q: Are you willing for a complete night shift
+[2026-03-29 01:11:48] INFO -   A: Yes
+[2026-03-29 01:11:48] INFO -   Radio/checkbox → Yes
+[2026-03-29 01:11:51] INFO -   Q: Current Location
+[2026-03-29 01:11:51] INFO -   A: Hyderabad
+[2026-03-29 01:11:55] INFO -   Q: Total Experience (In Years)
+[2026-03-29 01:11:55] INFO -   A: 5
+[2026-03-29 01:11:57] INFO -   Q: Are you ready to wok in 3pm-12pm IST shift?
+[2026-03-29 01:11:57] INFO -   A: Yes
+[2026-03-29 01:12:01] INFO -   Q: What is your Primary Skill?
+[2026-03-29 01:12:01] INFO -   A: AWS, DevOps, Docker, Kubernetes, Linux, CI/CD, Jenkins, GitLab, Terraform, Ansible, Python, Shell Scripting, Shell, Git, Cloud, Azure, GCP, Nginx, Prometheus, Grafana
+[2026-03-29 01:12:01] INFO -   Radio/checkbox → Cloud Engineering
+[2026-03-29 01:12:03] INFO -   Q: Thank you for your responses.
+[2026-03-29 01:12:03] INFO -   A: A
+[2026-03-29 01:12:03] WARNING -   No recognised input – exiting chatbot loop
+[2026-03-29 01:12:08] INFO - Checkboxes found: 62
+[2026-03-29 01:12:14] INFO -   Q: How many years of experience do you have in Aws Cloud?
+[2026-03-29 01:12:15] INFO -   A: 4
+[2026-03-29 01:12:17] INFO -   Q: How many years of experience you are having in Solution Architect
+[2026-03-29 01:12:17] INFO -   A: Yes
+[2026-03-29 01:12:20] INFO -   Q: What is your current CTC in Lacs per annum?
+[2026-03-29 01:12:20] INFO -   A: 15
+[2026-03-29 01:12:23] INFO -   Q: What is your expected CTC in Lacs per annum?
+[2026-03-29 01:12:23] INFO -   A: 15
+[2026-03-29 01:12:26] INFO -   Q: What is your notice period?
+[2026-03-29 01:12:26] INFO -   A: 30
+[2026-03-29 01:12:28] INFO -   Q: How many years of experience do you have in Data Engineering?
+[2026-03-29 01:12:28] INFO -   A: 5
+[2026-03-29 01:12:31] INFO -   Q: How many years of experience do you have in Devops?
+[2026-03-29 01:12:31] INFO -   A: 4
+[2026-03-29 01:12:34] INFO -   Q: How many years of experience do you have in Python?
+[2026-03-29 01:12:34] INFO -   A: 4
+[2026-03-29 01:12:36] INFO -   Q: How many years of experience do you have in SQL?
+[2026-03-29 01:12:36] INFO -   A: 5
+[2026-03-29 01:12:39] INFO -   Q: How many years of experience do you have in Pyspark?
+[2026-03-29 01:12:39] INFO -   A: 5
+[2026-03-29 01:12:41] INFO -   Q: How many years of experience do you have in AWS?
+[2026-03-29 01:12:41] INFO -   A: 4
+[2026-03-29 01:12:45] INFO -   Q: How many years of experience do you have in Kubernetes?
+[2026-03-29 01:12:45] INFO -   A: 4
+[2026-03-29 01:12:48] INFO -   Q: Thank you for your responses.
+[2026-03-29 01:12:48] INFO -   A: A
+[2026-03-29 01:12:48] WARNING -   No recognised input – exiting chatbot loop
+[2026-03-29 01:12:53] INFO - Checkboxes found: 57
+[2026-03-29 01:13:00] INFO -   Q: Last Working Day?
+[2026-03-29 01:13:00] INFO -   A: Swargam
+[2026-03-29 01:13:04] INFO -   Q: Ready for Face to Face - Hyderabad, Mumbai - 28 March 2026?
+[2026-03-29 01:13:04] INFO -   A: Yes
+[2026-03-29 01:13:07] INFO -   Q: How many years of experience do you have in Terraform?
+[2026-03-29 01:13:07] INFO -   A: 4
+[2026-03-29 01:13:09] INFO -   Q: Please select the city you are currently residing or willing to relocate to
+[2026-03-29 01:13:09] INFO -   A: Yes
+[2026-03-29 01:13:09] INFO -   Radio/checkbox → Hyderabad
+[2026-03-29 01:13:12] INFO -   Q: How many years of experience do you have in AKS?
+[2026-03-29 01:13:12] INFO -   A: 5
+[2026-03-29 01:13:14] INFO -   Q: How many years of experience do you have in AWS?
+[2026-03-29 01:13:14] INFO -   A: 4
+[2026-03-29 01:13:17] INFO -   Q: Are you open to work on contract (6 months)(Remote)?
+[2026-03-29 01:13:17] INFO -   A: Yes
+[2026-03-29 01:13:17] INFO -   Radio/checkbox → Yes
+[2026-03-29 01:13:19] INFO -   Q: Have you gone through must have skills? - If not, kindly check if they align with your roles and responsibilities before applying.
+[2026-03-29 01:13:19] INFO -   A: AWS, DevOps, Docker, Kubernetes, Linux, CI/CD, Jenkins, GitLab, Terraform, Ansible, Python, Shell Scripting, Shell, Git, Cloud, Azure, GCP, Nginx, Prometheus, Grafana
+[2026-03-29 01:13:44] INFO -   Q: Have you implemented Infrastructure as Code using Terraform in any of your projects?
+[2026-03-29 01:13:44] INFO -   A: 4
+[2026-03-29 01:13:44] INFO -   Radio/checkbox → No
+[2026-03-29 01:13:47] INFO -   Q: Have you deployed containerized applications on Kubernetes/GKE and managed CI/CD pipelines?
+[2026-03-29 01:13:47] INFO -   A: 4
+[2026-03-29 01:13:47] INFO -   Radio/checkbox → No
+[2026-03-29 01:13:50] INFO -   Q: Thank you for your responses.
+[2026-03-29 01:13:50] INFO -   A: A
+[2026-03-29 01:13:50] WARNING -   No recognised input – exiting chatbot loop
+[2026-03-29 01:13:54] INFO - Target reached: 20 jobs

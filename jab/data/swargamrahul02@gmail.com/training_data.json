@@ -1,0 +1,551 @@
+[
+    {
+        "patterns": [
+            "What is your full name?",
+            "Tell me your full name.",
+            "What is your name?",
+            "Can I have your full name?",
+            "Please provide your complete name.",
+            "Your name?"
+        ],
+        "tag": "full_name",
+        "answer": "Rahul Swargam"
+    },
+    {
+        "patterns": [
+            "What is your first name?",
+            "Tell me your first name.",
+            "What is your given name?",
+            "Can I know your first name?",
+            "First name please."
+        ],
+        "tag": "first_name",
+        "answer": "Rahul"
+    },
+    {
+        "patterns": [
+            "What is your last name?",
+            "What is your surname?",
+            "Tell me your last name.",
+            "Your family name?",
+            "Last name?"
+        ],
+        "tag": "last_name",
+        "answer": "Swargam"
+    },
+    {
+        "patterns": [
+            "What is your gender?",
+            "What do you identify as?",
+            "Gender",
+            "Please select your gender.",
+            "Male or Female?"
+        ],
+        "tag": "gender",
+        "answer": "Male"
+    },
+    {
+        "patterns": [
+            "What is your mobile number?",
+            "Tell me your phone number.",
+            "What is your cell phone number?",
+            "Can I have your mobile phone number?",
+            "Contact number?",
+            "Phone?"
+        ],
+        "tag": "mobile",
+        "answer": ""
+    },
+    {
+        "patterns": [
+            "What is your email address?",
+            "Tell me your email.",
+            "What is your email?",
+            "Can I have your email?",
+            "Email address please.",
+            "Your email ID?"
+        ],
+        "tag": "email",
+        "answer": "swargamrahul02@gmail.com"
+    },
+    {
+        "patterns": [
+            "Where are you located?",
+            "What is your location?",
+            "Where do you live?",
+            "Your current city?",
+            "Which state are you from?",
+            "Current location?",
+            "Which city do you reside in?"
+        ],
+        "tag": "location",
+        "answer": "Hyderabad"
+    },
+    {
+        "patterns": [
+            "What is your current salary?",
+            "What is your CTC?",
+            "How much are you earning?",
+            "What is your income?",
+            "Current annual package?",
+            "Present salary?"
+        ],
+        "tag": "current_salary",
+        "answer": "15"
+    },
+    {
+        "patterns": [
+            "What is your date of birth?",
+            "When is your birthday?",
+            "What is your DOB?",
+            "Your birth date?",
+            "Date of birth?"
+        ],
+        "tag": "date_of_birth",
+        "answer": ""
+    },
+    {
+        "patterns": [
+            "What is your expected salary?",
+            "What is your desired CTC?",
+            "What salary are you expecting?",
+            "Your expected income?",
+            "Expected package?",
+            "What is your salary expectation?"
+        ],
+        "tag": "expected_salary",
+        "answer": "15"
+    },
+    {
+        "patterns": [
+            "What is your preferred work location?",
+            "Where do you prefer to work?",
+            "What is your desired job location?",
+            "Your preferred city for work?",
+            "Preferred location?"
+        ],
+        "tag": "preferred_location",
+        "answer": "Hyderabad, Bengaluru, Pune, Chennai, Mumbai"
+    },
+    {
+        "patterns": [
+            "What is your notice period?",
+            "When can you join?",
+            "What is your availability to join?",
+            "How soon can you start?",
+            "Joining time?",
+            "How many days notice period do you have?",
+            "Earliest joining date?"
+        ],
+        "tag": "notice_period",
+        "answer": "30"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have?",
+            "What is your total experience?",
+            "How much experience do you have?",
+            "Your total work experience?",
+            "Current professional experience?",
+            "Total years in industry?",
+            "Years of work experience?"
+        ],
+        "tag": "current_experience",
+        "answer": "5"
+    },
+    {
+        "patterns": [
+            "Have you worked at our organization?",
+            "Were you previously employed by this organization?",
+            "Did you work for us before?",
+            "Any prior employment here?",
+            "Have you ever worked with this company?",
+            "Have you previously worked for us?",
+            "Any previous work experience with our company?",
+            "Did you work here before?",
+            "Have you worked here previously?"
+        ],
+        "tag": "bool_employee",
+        "answer": "No"
+    },
+    {
+        "patterns": [
+            "What is your last working day?",
+            "When is your last day at your current company?",
+            "What is your last date of employment?",
+            "When can you serve your last day?",
+            "Last working day?",
+            "When is your last day?",
+            "What is your last date?",
+            "Last day of work?"
+        ],
+        "tag": "last_working_day",
+        "answer": "30 days"
+    },
+    {
+        "patterns": [
+            "Have you implemented this tool?",
+            "Have you worked with this technology before?",
+            "Have you used this tool?",
+            "Do you have hands-on experience with this?",
+            "Have you implemented this?",
+            "Have you worked on this technology?",
+            "Have you used this technology?",
+            "Have you worked with this tool?",
+            "Have you ever used this?",
+            "Any hands-on experience with this tool?",
+            "Have you implemented anything with this tool?",
+            "Do you have experience implementing this?",
+            "Have you used this in production?",
+            "Have you worked on this before?"
+        ],
+        "tag": "tool_implemented",
+        "answer": "Yes"
+    },
+    {
+        "patterns": [
+            "How should we address you?",
+            "What is your salutation?",
+            "What is your title?",
+            "How do you prefer to be addressed?",
+            "Mr., Ms., or Dr.?"
+        ],
+        "tag": "salutation",
+        "answer": "Mr"
+    },
+    {
+        "patterns": [
+            "I consent to the Privacy Policy",
+            "Do you agree to the Privacy Policy?",
+            "I accept the Privacy Policy",
+            "Consent to the Privacy Policy",
+            "Do you agree to our terms?",
+            "Accept terms and conditions?"
+        ],
+        "tag": "privacy_policy_consent",
+        "answer": "Yes"
+    },
+    {
+        "patterns": [
+            "Are you currently residing in location or willing to relocate?",
+            "Do you live in location or are you open to relocating?",
+            "Are you based in location or would you move?",
+            "Are you willing to relocate?",
+            "Open to relocation?",
+            "Would you move to a different city for this role?"
+        ],
+        "tag": "relocation_bool",
+        "answer": "Yes"
+    },
+    {
+        "patterns": [
+            "Are you currently employed?",
+            "What is your employment status?",
+            "Are you working currently?",
+            "Current job status?"
+        ],
+        "tag": "employment_status",
+        "answer": "Yes"
+    },
+    {
+        "patterns": [
+            "What is your highest qualification?",
+            "Your educational background?",
+            "Highest degree obtained?",
+            "What did you study?",
+            "Your academic qualification?"
+        ],
+        "tag": "education",
+        "answer": "B.Tech"
+    },
+    {
+        "patterns": [
+            "Are you a fresher or experienced?",
+            "How would you describe yourself?",
+            "Fresher or experienced professional?"
+        ],
+        "tag": "fresher_or_exp",
+        "answer": "Experienced"
+    },
+    {
+        "patterns": [
+            "Do you have a passport?",
+            "Do you hold a valid passport?",
+            "Passport available?"
+        ],
+        "tag": "passport",
+        "answer": "Yes"
+    },
+    {
+        "patterns": [
+            "Are you willing to work in shifts?",
+            "Can you work in rotational shifts?",
+            "Night shift availability?",
+            "Shift preference?"
+        ],
+        "tag": "shift_willingness",
+        "answer": "Yes"
+    },
+    {
+        "patterns": [
+            "Do you have a two-wheeler?",
+            "Do you own a vehicle?",
+            "Do you have your own vehicle?",
+            "Own a bike or car?"
+        ],
+        "tag": "vehicle",
+        "answer": "Yes"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in AWS?",
+            "Experience in AWS",
+            "How long have you been working with AWS?",
+            "Years of AWS experience?",
+            "Rate your AWS expertise.",
+            "Do you know AWS? How long?"
+        ],
+        "tag": "AWS_exp",
+        "answer": "4"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in DevOps?",
+            "Experience in DevOps",
+            "How long have you been working with DevOps?",
+            "Years of DevOps experience?",
+            "Rate your DevOps expertise.",
+            "Do you know DevOps? How long?"
+        ],
+        "tag": "DevOps_exp",
+        "answer": "4"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in Docker?",
+            "Experience in Docker",
+            "How long have you been working with Docker?",
+            "Years of Docker experience?",
+            "Rate your Docker expertise.",
+            "Do you know Docker? How long?"
+        ],
+        "tag": "Docker_exp",
+        "answer": "4"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in Kubernetes?",
+            "Experience in Kubernetes",
+            "How long have you been working with Kubernetes?",
+            "Years of Kubernetes experience?",
+            "Rate your Kubernetes expertise.",
+            "Do you know Kubernetes? How long?"
+        ],
+        "tag": "Kubernetes_exp",
+        "answer": "4"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in Linux?",
+            "Experience in Linux",
+            "How long have you been working with Linux?",
+            "Years of Linux experience?",
+            "Rate your Linux expertise.",
+            "Do you know Linux? How long?"
+        ],
+        "tag": "Linux_exp",
+        "answer": "4"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in CI/CD?",
+            "Experience in CI/CD",
+            "How long have you been working with CI/CD?",
+            "Years of CI/CD experience?",
+            "Rate your CI/CD expertise.",
+            "Do you know CI/CD? How long?"
+        ],
+        "tag": "CI/CD_exp",
+        "answer": "4"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in Jenkins?",
+            "Experience in Jenkins",
+            "How long have you been working with Jenkins?",
+            "Years of Jenkins experience?",
+            "Rate your Jenkins expertise.",
+            "Do you know Jenkins? How long?"
+        ],
+        "tag": "Jenkins_exp",
+        "answer": "4"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in GitLab?",
+            "Experience in GitLab",
+            "How long have you been working with GitLab?",
+            "Years of GitLab experience?",
+            "Rate your GitLab expertise.",
+            "Do you know GitLab? How long?"
+        ],
+        "tag": "GitLab_exp",
+        "answer": "4"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in Terraform?",
+            "Experience in Terraform",
+            "How long have you been working with Terraform?",
+            "Years of Terraform experience?",
+            "Rate your Terraform expertise.",
+            "Do you know Terraform? How long?"
+        ],
+        "tag": "Terraform_exp",
+        "answer": "4"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in Ansible?",
+            "Experience in Ansible",
+            "How long have you been working with Ansible?",
+            "Years of Ansible experience?",
+            "Rate your Ansible expertise.",
+            "Do you know Ansible? How long?"
+        ],
+        "tag": "Ansible_exp",
+        "answer": "4"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in Python?",
+            "Experience in Python",
+            "How long have you been working with Python?",
+            "Years of Python experience?",
+            "Rate your Python expertise.",
+            "Do you know Python? How long?"
+        ],
+        "tag": "Python_exp",
+        "answer": "4"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in Shell Scripting?",
+            "Experience in Shell Scripting",
+            "How long have you been working with Shell Scripting?",
+            "Years of Shell Scripting experience?",
+            "Rate your Shell Scripting expertise.",
+            "Do you know Shell Scripting? How long?"
+        ],
+        "tag": "Shell Scripting_exp",
+        "answer": "4"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in Shell?",
+            "Experience in Shell",
+            "How long have you been working with Shell?",
+            "Years of Shell experience?",
+            "Rate your Shell expertise.",
+            "Do you know Shell? How long?"
+        ],
+        "tag": "Shell_exp",
+        "answer": "4"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in Git?",
+            "Experience in Git",
+            "How long have you been working with Git?",
+            "Years of Git experience?",
+            "Rate your Git expertise.",
+            "Do you know Git? How long?"
+        ],
+        "tag": "Git_exp",
+        "answer": "4"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in Cloud?",
+            "Experience in Cloud",
+            "How long have you been working with Cloud?",
+            "Years of Cloud experience?",
+            "Rate your Cloud expertise.",
+            "Do you know Cloud? How long?"
+        ],
+        "tag": "Cloud_exp",
+        "answer": "4"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in Azure?",
+            "Experience in Azure",
+            "How long have you been working with Azure?",
+            "Years of Azure experience?",
+            "Rate your Azure expertise.",
+            "Do you know Azure? How long?"
+        ],
+        "tag": "Azure_exp",
+        "answer": "2"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in GCP?",
+            "Experience in GCP",
+            "How long have you been working with GCP?",
+            "Years of GCP experience?",
+            "Rate your GCP expertise.",
+            "Do you know GCP? How long?"
+        ],
+        "tag": "GCP_exp",
+        "answer": "2"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in Nginx?",
+            "Experience in Nginx",
+            "How long have you been working with Nginx?",
+            "Years of Nginx experience?",
+            "Rate your Nginx expertise.",
+            "Do you know Nginx? How long?"
+        ],
+        "tag": "Nginx_exp",
+        "answer": "3"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in Prometheus?",
+            "Experience in Prometheus",
+            "How long have you been working with Prometheus?",
+            "Years of Prometheus experience?",
+            "Rate your Prometheus expertise.",
+            "Do you know Prometheus? How long?"
+        ],
+        "tag": "Prometheus_exp",
+        "answer": "3"
+    },
+    {
+        "patterns": [
+            "How many years of experience do you have in Grafana?",
+            "Experience in Grafana",
+            "How long have you been working with Grafana?",
+            "Years of Grafana experience?",
+            "Rate your Grafana expertise.",
+            "Do you know Grafana? How long?"
+        ],
+        "tag": "Grafana_exp",
+        "answer": "3"
+    },
+    {
+        "patterns": [
+            "What are your key skills?",
+            "Tell me your skills.",
+            "What skills do you have?",
+            "Your key competencies?",
+            "List your technical skills.",
+            "What technologies do you know?"
+        ],
+        "tag": "Skills",
+        "answer": "AWS, DevOps, Docker, Kubernetes, Linux, CI/CD, Jenkins, GitLab, Terraform, Ansible, Python, Shell Scripting, Shell, Git, Cloud, Azure, GCP, Nginx, Prometheus, Grafana"
+    }
+]

@@ -4,7 +4,7 @@ import os
 import random
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, timedelta
 from urllib.parse import urlparse, urlunparse
 from playwright.sync_api import sync_playwright, expect, TimeoutError as PlaywrightTimeoutError
 import tensorflow as tf
@@ -90,7 +90,19 @@ class ChatbotModel:
 
     def chatbot_response(self, msg):
         try:
-            return self.get_response(self.predict_class(msg))
+            # Dynamic: last working day → compute 30 days from today
+            last_day_keywords = ['last working day', 'last day', 'last date of employment', 'last date']
+            if any(kw in msg.lower() for kw in last_day_keywords):
+                return (datetime.now() + timedelta(days=30)).strftime('%d/%m/%Y')
+
+            response = self.get_response(self.predict_class(msg))
+
+            # Fallback: any experience/years question → always answer 4
+            if response == 'A':
+                exp_keywords = ['experience', 'years', 'how long', 'expertise', 'worked with', 'using', 'knowledge of']
+                if any(kw in msg.lower() for kw in exp_keywords):
+                    return '4'
+            return response
         except Exception:
             return 'A'
 

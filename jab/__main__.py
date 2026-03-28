@@ -70,13 +70,12 @@ Examples:
 
     # ── APPLY MODE ────────────────────────────────────────────
     if args.apply:
-        password = getpass("Naukri Password: ")
-        number   = args.jobs or int(input("Number of jobs to apply (default 10): ").strip() or 10)
+        password  = getpass("Naukri Password: ")
+        number    = args.jobs or int(input("Number of jobs to apply (default 10): ").strip() or 10)
         user_info = load_user_info(username)
 
-        resume = args.resume
-        if not resume:
-            resume = input("Path to resume file (leave blank to skip upload): ").strip()
+        # Auto-set resume from user_data if not provided via CLI
+        resume = args.resume or user_info.get("Resume path", "")
 
         nb = NaukriBot(
             email=email,
@@ -88,12 +87,13 @@ Examples:
         )
 
         if args.filters:
+            # Manual filter mode — user provides keyword
             print("\nEnter search filters (press Enter to skip optional fields):")
             search     = input("Job keyword / designation (required): ").strip()
             if not search:
                 print("Error: search keyword is required with --filters")
                 return
-            experience = input("Years of experience filter (e.g. 2, optional): ").strip()
+            experience = input("Years of experience filter (e.g. 5, optional): ").strip()
             location   = input("Preferred location (optional): ").strip()
             job_age    = input("Max job posting age in days (default 3): ").strip()
 
@@ -103,13 +103,42 @@ Examples:
             result = nb.filter_apply(search, experience, location, job_age)
             print(f"\nResult: {result}")
         else:
-            print(f"\nAvailable tabs: {nb.tabs}")
-            tab = input("Choose a tab to start from (default: profile): ").strip() or "profile"
-            if tab not in nb.tabs:
-                print(f"Invalid tab. Choose from: {nb.tabs}")
-                return
-            result = nb.start_apply(tab)
-            print(f"\nResult: {result}")
+            # Auto mode — cycle through DevOps/SRE roles automatically
+            AUTO_ROLES = [
+                "DevOps Engineer",
+                "SRE",
+                "Site Reliability Engineer",
+                "Cloud Engineer",
+                "Platform Engineer",
+                "AWS DevOps",
+                "Kubernetes Engineer",
+                "Infrastructure Engineer",
+            ]
+            AUTO_LOCATION  = "Hyderabad"
+            AUTO_EXPERIENCE = 5
+            AUTO_JOB_AGE    = 3
+
+            jobs_per_role = max(1, number // len(AUTO_ROLES))
+            total_applied = 0
+
+            print(f"\n🤖 Auto-applying to DevOps/SRE roles in {AUTO_LOCATION}...")
+            print(f"   Roles: {', '.join(AUTO_ROLES)}")
+            print(f"   Jobs per role: {jobs_per_role}\n")
+
+            for role in AUTO_ROLES:
+                if total_applied >= number:
+                    break
+                remaining = number - total_applied
+                target    = min(jobs_per_role, remaining)
+                print(f"\n🔍 Searching: '{role}' | Target: {target} jobs")
+                nb.applno        = target
+                nb.applied_count = 0
+                nb.skipped_count = 0
+                result = nb.filter_apply(role, AUTO_EXPERIENCE, AUTO_LOCATION, AUTO_JOB_AGE)
+                total_applied += result.get("applied", 0)
+                print(f"   ✓ Applied: {result.get('applied', 0)} | Total so far: {total_applied}/{number}")
+
+            print(f"\n✅ Session complete. Total applied: {total_applied}/{number}")
         return
 
     # ── NO MODE SELECTED ──────────────────────────────────────

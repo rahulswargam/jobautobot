@@ -6,6 +6,13 @@ import tensorflow as tf
 import nltk
 from nltk.stem import WordNetLemmatizer
 
+# Auto-download required NLTK data
+for resource in ['punkt', 'punkt_tab', 'wordnet', 'omw-1.4']:
+    try:
+        nltk.data.find(f'tokenizers/{resource}' if 'punkt' in resource else f'corpora/{resource}')
+    except LookupError:
+        nltk.download(resource, quiet=True)
+
 with open("./jab/data/user_data.json", "r") as file:
     user_data = json.load(file)
 
@@ -188,9 +195,48 @@ def training(data):
                 "Were you previously employed by this organization?",
                 "Did you work for us before?",
                 "Any prior employment here?",
+                "Have you ever worked with this company?",
+                "Have you previously worked for us?",
+                "Any previous work experience with our company?",
+                "Did you work here before?",
+                "Have you worked here previously?",
             ],
             "tag": "bool_employee",
             "answer": "No",
+        },
+        {
+            "patterns": [
+                "What is your last working day?",
+                "When is your last day at your current company?",
+                "What is your last date of employment?",
+                "When can you serve your last day?",
+                "Last working day?",
+                "When is your last day?",
+                "What is your last date?",
+                "Last day of work?",
+            ],
+            "tag": "last_working_day",
+            "answer": "30 days",
+        },
+        {
+            "patterns": [
+                "Have you implemented this tool?",
+                "Have you worked with this technology before?",
+                "Have you used this tool?",
+                "Do you have hands-on experience with this?",
+                "Have you implemented this?",
+                "Have you worked on this technology?",
+                "Have you used this technology?",
+                "Have you worked with this tool?",
+                "Have you ever used this?",
+                "Any hands-on experience with this tool?",
+                "Have you implemented anything with this tool?",
+                "Do you have experience implementing this?",
+                "Have you used this in production?",
+                "Have you worked on this before?",
+            ],
+            "tag": "tool_implemented",
+            "answer": "Yes",
         },
         {
             "patterns": [
