@@ -90,17 +90,29 @@ class ChatbotModel:
 
     def chatbot_response(self, msg):
         try:
+            msg_lower = msg.lower()
+
             # Dynamic: last working day → compute 30 days from today
             last_day_keywords = ['last working day', 'last day', 'last date of employment', 'last date']
-            if any(kw in msg.lower() for kw in last_day_keywords):
+            if any(kw in msg_lower for kw in last_day_keywords):
                 return (datetime.now() + timedelta(days=30)).strftime('%d/%m/%Y')
 
             response = self.get_response(self.predict_class(msg))
 
-            # Fallback: any experience/years question → always answer 4
             if response == 'A':
-                exp_keywords = ['experience', 'years', 'how long', 'expertise', 'worked with', 'using', 'knowledge of']
-                if any(kw in msg.lower() for kw in exp_keywords):
+                # Total / overall experience → 5 years
+                total_exp_keywords = [
+                    'total experience', 'total years', 'overall experience',
+                    'years of experience', 'how many years', 'total work experience',
+                ]
+                if any(kw in msg_lower for kw in total_exp_keywords):
+                    return '5'
+                # Tool-specific / relevant / devops experience → 4 years
+                specific_exp_keywords = [
+                    'experience', 'years', 'how long', 'expertise',
+                    'worked with', 'using', 'knowledge of', 'relevant',
+                ]
+                if any(kw in msg_lower for kw in specific_exp_keywords):
                     return '4'
             return response
         except Exception:
@@ -128,8 +140,25 @@ class ChatbotAgent:
         return self.analyzer.polarity_scores(text)['compound']
 
     def _best_match(self, target, options):
+        # Filter out null-like options when we have a meaningful answer
+        _null = {'none', 'n/a', 'not applicable', 'nil', 'na', '-'}
+        valid = [o for o in options if o.strip().lower() not in _null]
+        pool = valid if valid else options
+
+        # If target is numeric, prefer the option containing that number
+        t = target.strip()
+        if t.isdigit():
+            for opt in pool:
+                if t in opt.split() or opt.strip() == t:
+                    return opt
+            # Fallback: pick option whose embedded number is closest
+            def _num(s):
+                m = re.search(r'\d+', s)
+                return int(m.group()) if m else 999
+            return min(pool, key=lambda o: abs(_num(o) - int(t)))
+
         ts = self._score(target)
-        return min(options, key=lambda o: abs(ts - self._score(o)))
+        return min(pool, key=lambda o: abs(ts - self._score(o)))
 
     # ── human-like typing ─────────────────────────────────────
 
@@ -572,7 +601,31 @@ class NaukriBot:
             except Exception as e:
                 self.logger.warning(f"Pagination stopped: {e}")
 
-    # ── filter mode ────────────────────────────────────────────
+    # ── multi-role single-session apply ───────────────────────
+
+    def multi_role_apply(self, roles, experience='1to5', location='', job_age='3'):
+        """
+        Search for all roles in one browser session (no re-login).
+        Caller is responsible for init_browser() + login() before calling this,
+        and shutdown() after.
+        """
+        self.search = roles
+        self.experience = experience
+        self.location = location
+        self.jobage = job_age
+        human_delay(800, 1500)
+        self.filter_()
+        self.base_page_url = self.page.url
+        self.apply_()
+        result = {
+            "response": "done",
+            "applied": self.applied_count,
+            "skipped": self.skipped_count,
+        }
+        self.logger.info(f"Session complete: {result}")
+        return result
+
+    # ── filter mode (manual --filters, preserves legacy behaviour) ─
 
     def filter_apply(self, s, e='', l='', ja='3'):
         if not s:
@@ -603,19 +656,45 @@ class NaukriBot:
             srch = self.page.locator(".nI-gNb-sb__icon-wrapper")
             srch.click()
             human_delay(500, 900)
+
             kw_input = self.page.locator('input[placeholder="Enter keyword / designation / companies"]')
-            kw_input.fill(self.search)
+            kw_input.click()
+            kw_input.fill('')
+
+            # Support list of keywords — each pressed as a chip with Enter
+            keywords = self.search if isinstance(self.search, list) else [self.search]
+            for kw in keywords:
+                kw_input.fill(kw)
+                human_delay(300, 500)
+                kw_input.press('Enter')
+                human_delay(300, 500)
+
             if self.location:
                 loc_input = self.page.locator('input[placeholder="Enter location"]')
+                loc_input.click()
                 loc_input.fill(self.location)
+                human_delay(200, 400)
+                loc_input.press('Enter')
+                human_delay(200, 400)
+
             if self.experience:
-                self.page.locator('#experienceDD').click()
-                human_delay(300, 600)
-                self.page.locator(f'li[index="{self.experience}"]').click()
+                # Accept "1to5" range → use the min value index; also accept plain int
+                exp_str = str(self.experience)
+                min_exp = int(exp_str.split('to')[0]) if 'to' in exp_str else int(exp_str)
+                try:
+                    self.page.locator('#experienceDD').click()
+                    human_delay(300, 600)
+                    self.page.locator(f'li[index="{min_exp}"]').click()
+                    human_delay(200, 400)
+                except Exception:
+                    pass
+
             srch.click()
             self.page.wait_for_load_state('load')
+
             if self.jobage:
-                self.page.goto(self.page.url + f"&jobAge={self.jobage}")
+                sep = '&' if '?' in self.page.url else '?'
+                self.page.goto(self.page.url + f"{sep}jobAge={self.jobage}")
                 self.page.wait_for_load_state('networkidle')
         except Exception as e:
             self.logger.error(f"filter_ error: {e}")

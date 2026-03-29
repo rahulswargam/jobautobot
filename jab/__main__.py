@@ -103,45 +103,37 @@ Examples:
             result = nb.filter_apply(search, experience, location, job_age)
             print(f"\nResult: {result}")
         else:
-            # Auto mode — cycle through DevOps/SRE roles automatically
+            # Auto mode — single session, all roles searched together
             AUTO_ROLES = [
                 "DevOps Engineer",
+                "AWS DevOps",
                 "SRE",
                 "Site Reliability Engineer",
                 "Cloud Engineer",
                 "Platform Engineer",
-                "AWS DevOps",
                 "Kubernetes Engineer",
                 "Infrastructure Engineer",
             ]
-            AUTO_LOCATION  = "Hyderabad"
-            AUTO_EXPERIENCE = 4
+            AUTO_LOCATION   = "Hyderabad"
+            AUTO_EXPERIENCE = "1to5"   # experience range: 1–5 years
             AUTO_JOB_AGE    = 3
-
-            jobs_per_role = max(1, number // len(AUTO_ROLES))
-            total_applied = 0
 
             print(f"\n🤖 Auto-applying to DevOps/SRE roles in {AUTO_LOCATION}...")
             print(f"   Roles: {', '.join(AUTO_ROLES)}")
-            print(f"   Jobs per role: {jobs_per_role}\n")
+            print(f"   Experience filter: {AUTO_EXPERIENCE} years | Target: {number} jobs\n")
+
+            nb.applno = number
+            nb.init_browser()
+            if not nb.login():
+                print("Login failed — exiting")
+                nb.shutdown()
+                return
 
             try:
-                for role in AUTO_ROLES:
-                    if total_applied >= number:
-                        break
-                    remaining = number - total_applied
-                    target    = min(jobs_per_role, remaining)
-                    print(f"\n🔍 Searching: '{role}' | Target: {target} jobs")
-                    nb.applno        = target
-                    nb.applied_count = 0
-                    nb.skipped_count = 0
-                    result = nb.filter_apply(role, AUTO_EXPERIENCE, AUTO_LOCATION, AUTO_JOB_AGE)
-                    total_applied += result.get("applied", 0)
-                    print(f"   ✓ Applied: {result.get('applied', 0)} | Total so far: {total_applied}/{number}")
+                result = nb.multi_role_apply(AUTO_ROLES, AUTO_EXPERIENCE, AUTO_LOCATION, AUTO_JOB_AGE)
+                print(f"\n✅ Session complete. Total applied: {result.get('applied', 0)}/{number}")
             finally:
                 nb.shutdown()
-
-            print(f"\n✅ Session complete. Total applied: {total_applied}/{number}")
         return
 
     # ── NO MODE SELECTED ──────────────────────────────────────
