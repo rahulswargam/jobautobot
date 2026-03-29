@@ -5,10 +5,10 @@
     "Last name": "Swargam",
     "Location": "Hyderabad",
     "Current location": "Hyderabad",
-    "Total experience": "5",
-    "Current CTC": "9",
-    "Expected salary": "15",
-    "Salary": "15",
+    "Total experience": "4",
+    "Current CTC": "9 LPA",
+    "Expected salary": "15 LPA",
+    "Salary": "9 LPA",
     "Mobile": "",
     "Email": "swargamrahul02@gmail.com",
     "Notice period": "30",
@@ -46,5 +46,5 @@
     "Shift willingness": "Yes",
     "Vehicle": "Yes",
     "Resume path": "/Users/rahul/Desktop/Rahul Swargam.pdf",
-    "Cover letter": "I am a DevOps Engineer with 5+ years of experience in AWS, Docker, Kubernetes, Terraform, Ansible, CI/CD pipelines, and Linux. I am passionate about building scalable and reliable infrastructure and automating deployments. I am immediately available and open to relocate to Hyderabad, Bengaluru, Pune, Chennai or Mumbai."
+    "Cover letter": "I am a DevOps Engineer with 4 years of experience in AWS, Docker, Kubernetes, Terraform, Ansible, CI/CD pipelines, and Linux. I am passionate about building scalable and reliable infrastructure and automating deployments. I am immediately available and open to relocate to Hyderabad, Bengaluru, Pune, Chennai or Mumbai."
 }

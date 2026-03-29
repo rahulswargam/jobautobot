@@ -321,6 +321,8 @@ class NaukriBot:
         if resume_path:
             self.user_info["Resume path"] = resume_path
 
+        self.pw = None  # playwright instance reused across sessions to avoid asyncio-loop conflicts
+
         log_path = log_file or f"./jab/data/{username}/session_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
         self.logger = setup_logger('NaukriBot', log_path)
         self.logger.info(f"NaukriBot ready — user: {username}, target: {number} jobs")
@@ -328,13 +330,14 @@ class NaukriBot:
     # ── browser ────────────────────────────────────────────────
 
     def init_browser(self):
-        pw = sync_playwright().start()
+        if self.pw is None:
+            self.pw = sync_playwright().start()
         args = [
             "--disable-blink-features=AutomationControlled",
             "--no-sandbox",
             "--disable-dev-shm-usage",
         ]
-        self.browser = pw.chromium.launch(headless=False, args=args)
+        self.browser = self.pw.chromium.launch(headless=False, args=args)
         ctx = self.browser.new_context(
             user_agent=(
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -709,4 +712,12 @@ class NaukriBot:
     def close(self):
         if self.browser:
             self.browser.close()
+            self.browser = None
             self.logger.info("Browser closed")
+
+    def shutdown(self):
+        """Call once after all roles are done to fully stop playwright."""
+        self.close()
+        if self.pw:
+            self.pw.stop()
+            self.pw = None

@@ -115,7 +115,7 @@ Examples:
                 "Infrastructure Engineer",
             ]
             AUTO_LOCATION  = "Hyderabad"
-            AUTO_EXPERIENCE = 5
+            AUTO_EXPERIENCE = 4
             AUTO_JOB_AGE    = 3
 
             jobs_per_role = max(1, number // len(AUTO_ROLES))
@@ -125,18 +125,21 @@ Examples:
             print(f"   Roles: {', '.join(AUTO_ROLES)}")
             print(f"   Jobs per role: {jobs_per_role}\n")
 
-            for role in AUTO_ROLES:
-                if total_applied >= number:
-                    break
-                remaining = number - total_applied
-                target    = min(jobs_per_role, remaining)
-                print(f"\n🔍 Searching: '{role}' | Target: {target} jobs")
-                nb.applno        = target
-                nb.applied_count = 0
-                nb.skipped_count = 0
-                result = nb.filter_apply(role, AUTO_EXPERIENCE, AUTO_LOCATION, AUTO_JOB_AGE)
-                total_applied += result.get("applied", 0)
-                print(f"   ✓ Applied: {result.get('applied', 0)} | Total so far: {total_applied}/{number}")
+            try:
+                for role in AUTO_ROLES:
+                    if total_applied >= number:
+                        break
+                    remaining = number - total_applied
+                    target    = min(jobs_per_role, remaining)
+                    print(f"\n🔍 Searching: '{role}' | Target: {target} jobs")
+                    nb.applno        = target
+                    nb.applied_count = 0
+                    nb.skipped_count = 0
+                    result = nb.filter_apply(role, AUTO_EXPERIENCE, AUTO_LOCATION, AUTO_JOB_AGE)
+                    total_applied += result.get("applied", 0)
+                    print(f"   ✓ Applied: {result.get('applied', 0)} | Total so far: {total_applied}/{number}")
+            finally:
+                nb.shutdown()
 
             print(f"\n✅ Session complete. Total applied: {total_applied}/{number}")
         return
